@@ -1,0 +1,8 @@
+{
+    "name": "invoke_cluster_deployment",
+    "job": {
+        "customOptions": {
+            "cluster_name": "{{cluster_name}}"
+        }
+    }
+}

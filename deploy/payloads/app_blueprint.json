@@ -1,0 +1,13 @@
+{
+    "blueprint": {
+        "name": "test_blueprint_demo_blueprint",
+        "type": "kubernetes",
+        "config": {
+            "kubernetes": {
+                "configType": "yaml",
+                "yaml": "{{blueprint_yaml}}"
+            }
+        },
+        "visibility": "private"
+    }
+}
