@@ -1,6 +1,6 @@
 {
     "blueprint": {
-        "name": "test_blueprint_demo_blueprint",
+        "name": "online_beverages",
         "type": "kubernetes",
         "config": {
             "kubernetes": {
