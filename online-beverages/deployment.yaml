@@ -667,7 +667,7 @@ spec:
       nodeSelector:
       containers:
         - name: server
-          image: srushtikotak/apm:frontendfinal1
+          image:  kaify01/apm:frontend-v2
           ports:
           - containerPort: 8080
           readinessProbe:
