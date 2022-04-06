@@ -17,7 +17,7 @@ def get_morpheus_auth():
 
 
 def get_deployment_config():
-    with open("online-boutique/deployment.yaml", "r") as stream:
+    with open("online-beverages/deployment.yaml", "r") as stream:
         try:
             test = list(yaml.safe_load_all(stream))
             deployment_file = yaml.dump_all(test, sort_keys=False)
