@@ -78,7 +78,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: kaify01/apm:productcatalogservice
+        image: kaify01/apm:productcatalogservice-v4
         ports:
         - containerPort: 3550
         env:
