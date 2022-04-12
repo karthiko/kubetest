@@ -16,7 +16,7 @@ pipeline{
             environment {
 				TASK_NAME = "test_python_d_001"
 				BLUEPRINT_NAME = "online_beverages"
-                CLUSTER_NAME = "demo-cluster-dev-001"
+                CLUSTER_NAME = "demo-cluster-dev-002"
                 MORPHEUS_TOKEN = credentials('jenkins-morpheus_token')
                 MORPHEUS_URL = "https://core-morpheus.morpheus.r53acpaccenturecloud.net"
                 ENV = 'dev'
@@ -29,7 +29,7 @@ pipeline{
         stage('Production') {
             environment {
                 BLUEPRINT_NAME = "online_beverages"
-                CLUSTER_NAME = "demo-cluster-prod-001"
+                CLUSTER_NAME = "demo-cluster-prod-002"
                 MORPHEUS_TOKEN = credentials('jenkins-morpheus_token')
                 MORPHEUS_URL = "https://core-morpheus.morpheus.r53acpaccenturecloud.net"
                 TASK_NAME = "test_python_d_001"
