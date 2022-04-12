@@ -1,0 +1,28 @@
+{
+  "cluster_type": "eks-cluster",
+  "group": "acp-engineering",
+  "cloud": "acp3-automated-test",
+  "controller_role_arn": "arn:aws:iam::925924827205:role/eksClusterRole",
+  "layout": "Kubernetes 1.21 Cluster EKS",
+  "cluster_name": "test_d_cluster_prod_0001",
+  "controller_network": [
+    "subnet-0dddbb4071d3ca78d",
+    "subnet-088a78b5796aa362d"
+  ],
+  "controller_security_group": [
+    "sg-0925386928d47a6f0"
+  ],
+  "worker_role_arn": "arn:aws:iam::925924827205:role/eks-node-role",
+  "worker_network": [
+    "subnet-0dddbb4071d3ca78d",
+    "subnet-088a78b5796aa362d"
+  ],
+  "worker_security_group": [
+    "sg-0925386928d47a6f0"
+  ],
+  "node_size": "T2 Small - 1 Core, 2GB Memory",
+  "cluster_network_id": "vpc-6bb13e0e",
+  "node_count": "3",
+  "visibility": "private",
+  "cluster_plan": "EKS Controller"
+}

@@ -1,0 +1,31 @@
+{
+  "cluster_type": "eks-cluster",
+  "group": "CMO",
+  "cloud": "awsremington1",
+  "controller_role_arn": "arn:aws:iam::945073056277:role/eks-cluster-demo-role",
+  "layout": "Kubernetes 1.21 Cluster EKS",
+  "cluster_name": "test_d_cluster_0003",
+  "controller_network": [
+    "subnet-02f3053397d6daf09",
+    "subnet-0aa4fb7a4ab6fc7fa",
+    "subnet-0fe329dcab4ef327c",
+    "subnet-0599af0285631ab9b"
+  ],
+  "controller_security_group": [
+    "sg-033350cd94a672e6f"
+  ],
+  "worker_role_arn": "arn:aws:iam::945073056277:role/eks-node-group-nodes-role",
+  "worker_network": [
+    "subnet-0fe329dcab4ef327c",
+    "subnet-0599af0285631ab9b"
+  ],
+  "worker_security_group": [
+    "sg-033350cd94a672e6f"
+  ],
+  "node_size": "T2 Small - 1 Core, 2GB Memory",
+  "cluster_network_id": "vpc-0f1c2f83bfaf431ea",
+  "node_count": "3",
+  "node_name": "test-d-node",
+  "visibility": "private",
+  "cluster_plan": "EKS Controller"
+}

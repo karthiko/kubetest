@@ -35,10 +35,6 @@ def get_blueprint_id(blueprint_name):
             '%s/api/blueprints?offset=%s' % (MORPHEUS_URL, offset),
             headers=get_morpheus_auth()
         ).content.decode('UTF-8'))
-        logging.info(requests.get(
-            '%s/api/blueprints?offset=%s' % (MORPHEUS_URL, offset),
-            headers=get_morpheus_auth()
-        ).content.decode('UTF-8'))
         blueprint_id = jmespath.search(
             "blueprints[?name=='%s'] | [0].id" % blueprint_name, blueprint_list
         )

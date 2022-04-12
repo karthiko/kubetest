@@ -1,0 +1,54 @@
+{
+	"cluster": {
+		"type": "{{ cluster_type }}",
+		"group": {
+			"id": {{ group }}
+		},
+		"name": "{{ cluster_name }}",
+		"cloud": {
+			"id": {{ cloud }}
+		},
+		"layout": {
+			"id": {{ layout }}
+		},
+		"server": {
+			"config": {
+				"resourcePoolId": {{ cluster_network_id }},
+				"controller.role.id": "{{ controller_role_arn }}",
+				"controller": {
+				"network": {
+					"id": {{ controller_network }}
+				},
+				"securityGroup": {
+					"id": {{ controller_security_group }}
+				}
+				},
+				"worker": {
+					"network": {
+						"id": {{ worker_network }}
+					},
+					"securityGroup": {
+						"id": {{ worker_security_group }}
+					},
+					"plan": {
+						"id": {{ node_size }}
+					},
+					"role": {
+						"id": "{{ worker_role_arn }}"
+					}
+				},
+				"publicIpType": "subnet",
+				"createUser": null
+			},
+			"nodeCount": {{ node_count }},
+			"name": "{{ cluster_name }}-node",
+			"plan": {
+				"id": {{ cluster_plan }}
+			},
+			"securityGroups": [],
+			"visibility": "{{ visibility }}",
+			"networkDomain": null,
+			"hostname": "{{ cluster_name }}-host"
+		}
+	}
+}

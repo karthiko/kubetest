@@ -1,0 +1,33 @@
+{
+  "group" : {
+    "path": "groups"
+  },
+  "cloud" : {
+    "path": "zones"
+  },
+  "layout": {
+    "path": "library/cluster-layouts",
+    "result_type": "layouts"
+  },
+  "controller_network": {
+    "path": "networks",
+    "parameter": ["zone"]
+  },
+  "worker_network": {
+    "path": "networks",
+     "parameter": ["zone"]
+  },
+  "node_size": {
+    "path": "servers/service-plans",
+    "parameter": ["zone"],
+    "result_type": "plans"
+  },
+  "cluster_plan": {
+    "path": "service-plans",
+    "result_type": "servicePlans"
+  },
+  "cluster_network_id": {
+    "path": "zones/{{zone}}/resource-pools",
+    "result_type": "resourcePools"
+  }
+}
