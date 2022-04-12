@@ -112,6 +112,7 @@ def create_cluster(cluster_name):
             )
             if status != 'provisioning':
                 is_completed = True
+                logging.info("Cluster created successfully")
     else:
         logging.error("Cluster Creation failed with error %s" % api_response.content.decode('UTF-8'))
 
@@ -121,3 +122,5 @@ if not cluster:
     create_cluster(CLUSTER_NAME)
     if ENVIRONMENT == 'prod':
         execute_task(task='monitoring')
+else:
+    logging.info("Cluster already exists")

@@ -54,4 +54,5 @@ def execute_task(task='deployment'):
             logging.error("Error in triggering task execution %s" % e)
 
 
-execute_task()
+if __name__ == "__main__":
+    execute_task()
