@@ -107,13 +107,12 @@ def create_cluster(cluster_name):
             status = jmespath.search(
                 'cluster.status', json.loads(cluster_details.content.decode('UTF-8'))
             )
-            print(status)
             if status != 'provisioning':
                 is_completed = True
     else:
         logging.error("Cluster Creation failed with error %s" % api_response.content.decode('UTF-8'))
 
 
-cluster = get_api('clusters', 'test_d_cluster_0012')
+cluster = get_api('clusters', CLUSTER_NAME)
 if not cluster:
-    create_cluster('test_d_cluster_0012')
+    create_cluster(CLUSTER_NAME)
