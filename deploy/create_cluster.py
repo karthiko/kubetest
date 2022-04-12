@@ -4,9 +4,11 @@ import json
 import logging
 import os
 import requests
+import sys
 import time
 
-from deploy.execute_task import execute_task
+sys.path.append('../')
+from execute_task import execute_task
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
