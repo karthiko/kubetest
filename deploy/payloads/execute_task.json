@@ -2,7 +2,10 @@
     "name": "invoke_cluster_deployment",
     "job": {
         "customOptions": {
-            "cluster_name": "{{cluster_name}}"
+            "cluster_name": "{{ cluster_name }}",
+            "blueprint_name": "{{ blueprint_name }}",
+            "environment": "{{ environment }}",
+            "task": "{{ task }}"
         }
     }
 }

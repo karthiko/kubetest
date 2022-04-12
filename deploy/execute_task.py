@@ -1,3 +1,4 @@
+from jinja2 import Template
 import jmespath
 import json
 import logging
@@ -8,8 +9,6 @@ logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
 MORPHEUS_TOKEN = os.environ.get('MORPHEUS_TOKEN')
 MORPHEUS_URL = os.environ.get('MORPHEUS_URL')
-TASK_NAME = os.environ.get('TASK_NAME')
-CLUSTER_NAME = os.environ.get('CLUSTER_NAME')
 
 
 def get_morpheus_auth():
@@ -33,20 +32,26 @@ def get_task_id(task_name):
     return task_id
 
 
-def execute_task(task_name, cluster):
+def execute_task(task='deployment'):
+    task_name = os.environ.get('TASK_NAME')
     task_id = get_task_id(task_name)
-    with open("deploy/payloads/execute_task.json", "r") as execute_task_stream:
+    with open("payloads/execute_task.json", "r") as execute_task_stream:
         try:
-            execute_task_payload = json.load(execute_task_stream)
-            execute_task_payload['job']['customOptions']['cluster_name'] = cluster
+            data = {
+                "cluster_name": os.environ.get('CLUSTER_NAME'),
+                "blueprint_name": os.environ.get('BLUEPRINT_NAME'),
+                "environment": os.environ.get('ENVIRONMENT'),
+                "task": task
+            }
+            execute_task_payload = Template(execute_task_stream.read())
             api_response = requests.put(
                     '%s/api/tasks/%s/execute' % (MORPHEUS_URL, task_id),
                     headers=get_morpheus_auth(),
-                    data=json.dumps(execute_task_payload)
+                    data=execute_task_payload.render(data)
                 )
             logging.info("Task triggered %s" % api_response.content)
         except Exception as e:
             logging.error("Error in triggering task execution %s" % e)
 
 
-execute_task(TASK_NAME, CLUSTER_NAME)
+execute_task()

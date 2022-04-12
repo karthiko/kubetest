@@ -49,6 +49,7 @@ def update_blueprint(blueprint_name):
     with open("deploy/payloads/app_blueprint.json", "r") as blueprint_payload_stream:
         try:
             blueprint_payload = json.load(blueprint_payload_stream)
+            blueprint_payload['blueprint']['name'] = blueprint_name
             blueprint_payload['blueprint']['config']['kubernetes']['yaml'] = get_deployment_config()
             if blueprint_id:
                 logging.info("Updating blueprint %s" % blueprint_name)

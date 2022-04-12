@@ -6,6 +6,8 @@ import os
 import requests
 import time
 
+from deploy.execute_task import execute_task
+
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
 MORPHEUS_TOKEN = os.environ.get('MORPHEUS_TOKEN')
@@ -84,12 +86,10 @@ def create_cluster_payload(cluster_name, env):
 
 
 def create_cluster(cluster_name):
-    payload = json.loads(create_cluster_payload(cluster_name, ENVIRONMENT))
-    print(json.dumps(payload, indent=4))
     api_response = requests.post(
         '%s/api/clusters' % MORPHEUS_URL,
         headers=get_morpheus_auth(),
-        data=json.dumps(payload)
+        data=create_cluster_payload(cluster_name, ENVIRONMENT)
     )
     if api_response.status_code == 200:
         cluster_id = jmespath.search(
@@ -99,6 +99,7 @@ def create_cluster(cluster_name):
         logging.info("Creating cluster with id %s", cluster_id)
         is_completed = False
         while not is_completed:
+            logging.info("Waiting for cluster creation")
             time.sleep(300)
             cluster_details = requests.get(
                 '%s/api/clusters/%s' % (MORPHEUS_URL, cluster_id),
@@ -116,3 +117,5 @@ def create_cluster(cluster_name):
 cluster = get_api('clusters', CLUSTER_NAME)
 if not cluster:
     create_cluster(CLUSTER_NAME)
+    if ENVIRONMENT == 'prod':
+        execute_task(task='monitoring')
