@@ -57,7 +57,7 @@ def get_api(resource, resource_name, result_type=None, parameter=None):
 
 
 def create_cluster_payload(cluster_name, env):
-    with open('payloads/create_cluster.json') as payload, \
+    with open('deploy/payloads/create_cluster.json') as payload, \
             open('config/config-api-mapping.json') as mapping, \
             open('config/%s-config.json' % env) as env_config:
         payload = Template(payload.read())
