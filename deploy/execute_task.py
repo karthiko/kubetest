@@ -35,7 +35,7 @@ def get_task_id(task_name):
 def execute_task(task='deployment'):
     task_name = os.environ.get('TASK_NAME')
     task_id = get_task_id(task_name)
-    with open("payloads/execute_task.json", "r") as execute_task_stream:
+    with open("deploy/payloads/execute_task.json", "r") as execute_task_stream:
         try:
             data = {
                 "cluster_name": os.environ.get('CLUSTER_NAME'),
