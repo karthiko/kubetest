@@ -78,7 +78,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: kaify01/apm:productcatalogservice-v4
+        image: srushtikotak/apm:productcatalogservice2
         ports:
         - containerPort: 3550
         env:
@@ -667,7 +667,7 @@ spec:
       nodeSelector:
       containers:
         - name: server
-          image:  kaify01/apm:frontend-v2
+          image: srushtikotak/apm:frontendfinal1
           ports:
           - containerPort: 8080
           readinessProbe:
