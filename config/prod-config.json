@@ -4,7 +4,6 @@
   "cloud": "acp3-automated-test",
   "controller_role_arn": "arn:aws:iam::925924827205:role/eksClusterRole",
   "layout": "Kubernetes 1.21 Cluster EKS",
-  "cluster_name": "test_d_cluster_prod_0001",
   "controller_network": [
     "subnet-0dddbb4071d3ca78d",
     "subnet-088a78b5796aa362d"

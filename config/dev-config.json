@@ -4,7 +4,6 @@
   "cloud": "awsremington1",
   "controller_role_arn": "arn:aws:iam::945073056277:role/eks-cluster-demo-role",
   "layout": "Kubernetes 1.21 Cluster EKS",
-  "cluster_name": "test_d_cluster_0003",
   "controller_network": [
     "subnet-02f3053397d6daf09",
     "subnet-0aa4fb7a4ab6fc7fa",
